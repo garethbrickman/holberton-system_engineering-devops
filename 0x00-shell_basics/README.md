@@ -1,0 +1,1 @@
+This a README for my 0x00-shell_basics project describing what my scripts do.
