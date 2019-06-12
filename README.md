@@ -1,0 +1,1 @@
+This is a README file for my 0x00. Shell, basics project repo
