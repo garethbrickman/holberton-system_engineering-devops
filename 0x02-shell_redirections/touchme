@@ -1,0 +1,41 @@
+#!/bin/bash
+
+#### Constants
+#### Master File Name List
+
+FILENAME0="0-hello_world"
+FILENAME1="1-confused_smiley"
+FILENAME2="2-hellofile"
+FILENAME3="3-twofiles"
+FILENAME4="4-lastlines"
+FILENAME5="5-firstlines"
+
+#### Functions
+#### Shell Scripts
+
+touch_files()
+{
+touch $FILENAME0    $FILENAME1    $FILENAME2    $FILENAME3    $FILENAME4    $FILENAME5
+}
+
+echo_shebang()
+{
+for i in *
+do
+echo $'#!/bin/bash\n' >> $i
+done
+}
+
+permission_mission()
+{
+chmod u+x *
+}
+
+#### MAIN
+#### Shell Script Variables
+
+$(touch_files)
+$(echo_shebang)
+$(permission_mission)
+#!/bin/bash
+
