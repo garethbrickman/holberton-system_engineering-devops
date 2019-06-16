@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -alv
+ls -aln1v
