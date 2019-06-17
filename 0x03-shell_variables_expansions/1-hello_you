@@ -1,2 +1,2 @@
 #!/bin/bash
-echo hello $(uid -g)
+echo hello "$USER"
