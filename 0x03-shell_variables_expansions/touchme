@@ -1,0 +1,49 @@
+#!/bin/bash
+
+#### Constants
+#### Master File Name List
+
+FILENAME0="0-iam_betty"
+FILENAME1="1-who_am_i"
+FILENAME2="2-groups"
+FILENAME3="3-new_owner"
+FILENAME4="4-empty"
+FILENAME5="5-execute"
+FILENAME6="6-multiple_permissions"
+FILENAME7="7-everybody"
+FILENAME8="8-James_Bond"
+FILENAME9="9-John_Doe"
+FILENAME10="10-mirror_permissions"
+FILENAME11="11-directories_permissions"
+FILENAME12="12-directory_permissions"
+FILENAME13="13-change_group"
+FILENAME14="14-change_owner_and_group"
+
+#### Functions
+#### Shell Scripts
+
+touch_files()
+{
+touch $FILENAME0    $FILENAME1    $FILENAME2    $FILENAME3    $FILENAME4    $FILENAME5    $FILENAME6    $FILENAME7    $FILENAME8    $FILENAME9    $FILENAME10    $FILENAME11    $FILENAME12    $FILENAME13    $FILENAME14
+}
+
+echo_shebang()
+{
+for i in *
+do
+echo $'#!/bin/bash\n' >> $i
+done
+}
+
+permission_mission()
+{
+chmod u+x *
+}
+
+#### MAIN
+#### Shell Script Variables
+
+$(touch_files)
+$(echo_shebang)
+$(permission_mission)
+
