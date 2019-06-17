@@ -1,0 +1,1 @@
+This is a README to explain the scripts in my 0x03. Shell, init files, variables and expansions project
