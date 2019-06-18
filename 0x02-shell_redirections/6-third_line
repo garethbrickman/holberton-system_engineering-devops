@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -context=3 iacta
+cat linetest3 | head -n 3 | tail -n -1
