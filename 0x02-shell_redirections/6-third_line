@@ -1,2 +1,2 @@
 #!/bin/bash
-grep --context=3 iacta
+grep -context=3 iacta
