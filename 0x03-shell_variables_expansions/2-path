@@ -1,2 +1,2 @@
 #!/bin/bash
-PATH=$PATH:~/action >> /home/vagrant/.bashrc
+export PATH="/action:$PATH" >> home/vagrant/.bashrc
