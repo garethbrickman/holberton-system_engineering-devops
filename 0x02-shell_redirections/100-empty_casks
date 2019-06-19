@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -a | find -type f -empty 
+ls -a | find -type f -empty | cut --complement -c 1,2
