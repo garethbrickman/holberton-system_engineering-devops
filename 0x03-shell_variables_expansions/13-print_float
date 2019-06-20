@@ -1,2 +1,2 @@
 #!/bin/bash
-printf %b\n0.2f $NUM
+printf '%b.00\n' $NUM
