@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+### Display a string 10 times with if condition on #9
+x="0"
+while [  $x -lt 10  ]; do
+    echo 'Holberton School'
+    if [  $x == 8   ]; then
+	echo 'Hi'
+    fi
+x=$((x+1))
+done
