@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+### Display a string 10 times with if conditions on 4th, 8th loops
+x="0"
+while [  $x -lt 10  ]; do
+    echo 'Holberton School'
+    if [  $x == 2   ]; then
+	echo 'bad luck'
+    elif [ $x == 7  ]; then
+	echo 'good luck'
+    fi
+x=$((x+1))
+done
