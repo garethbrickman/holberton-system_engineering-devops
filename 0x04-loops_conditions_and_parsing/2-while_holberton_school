@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+### Display a string 10 times
+x="0"
+while [  $x -lt 10  ]
+do
+echo 'Holberton School' &
+x=$((x+1))
+done
