@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+### Display a string 10 times
+for _ in {0..9}
+do
+echo 'Holberton School'
+done
