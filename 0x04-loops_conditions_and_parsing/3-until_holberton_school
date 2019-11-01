@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+### Display a string 10 times
+x="10"
+until [  $x -lt 1  ]
+do
+echo 'Holberton School'
+let x-=1
+done
