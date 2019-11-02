@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+### Displays directory contents with pre-dash name removed
+for filename in *; do
+echo "$(basename "$filename" | sed -r 's/.*(\-*)-(.*)/\2/')"
+done
