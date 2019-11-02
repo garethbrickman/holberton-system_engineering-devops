@@ -16,13 +16,3 @@ esac
 echo $x
 x=$((x+1))
 done
-# while [  $x -lt 20  ]; do
-#     if [  $x == 3   ]; then
-# 	echo 'bad luck'
-#     elif [ $x == 7  ]; then
-# 	echo 'good luck'
-#     else
-# 	echo 'Holberton School'
-#     fi
-# x=$((x+1))
-# done
