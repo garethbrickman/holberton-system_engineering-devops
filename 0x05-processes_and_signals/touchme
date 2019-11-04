@@ -1,0 +1,43 @@
+#!/bin/bash
+
+#### Constants
+#### Master File Name List
+
+FILENAME0="0-what-is-my-pid"
+FILENAME1="1-list_your_processes"
+FILENAME2="2-show_your_bash_pid"
+FILENAME3="3-show_your_bash_pid_made_easy"
+FILENAME4="4-to_infinity_and_beyond"
+FILENAME5="5-kill_me_now"
+FILENAME6="6-kill_me_now_made_easy"
+FILENAME7="7-highlander"
+FILENAME8="8-beheaded_process"
+FILENAME9="100-process_and_pid_file"
+
+#### Functions
+#### Shell Scripts
+
+touch_files()
+{
+touch $FILENAME0    $FILENAME1    $FILENAME2    $FILENAME3    $FILENAME4    $FILENAME5    $FILENAME6    $FILENAME7    $FILENAME8    $FILENAME9
+}
+
+echo_shebang()
+{
+for i in *
+do
+echo $'#!/usr/bin/env bash\n' >> $i
+done
+}
+
+permission_mission()
+{
+chmod u+x *
+}
+
+#### MAIN
+#### Shell Script Variables
+
+$(touch_files)
+$(echo_shebang)
+$(permission_mission)
