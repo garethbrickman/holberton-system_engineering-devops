@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 ### Display string indefinitely with sleep each iteration
-while [  True  ]; do
+while true; do
 echo 'To infinity and beyond' &
 sleep 2
 done
-# shellcheck disable=SC2078
