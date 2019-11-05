@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 ### Script kills named process
-ps aux | grep ./4-to_inf | grep -v grep | awk '{print $2}' | xargs kill
-# shellcheck disable=SC2009
+pgrep -f ./4-to_inf | grep -v grep | awk '{print $1}' | xargs kill
