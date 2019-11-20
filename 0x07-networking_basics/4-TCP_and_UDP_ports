@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+### Displays listening sockets with PID/name
+netstat -lp
