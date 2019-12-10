@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+### Creates RSA key pair with bit limit & passphrase
+ssh-keygen -f ./holberton -t rsa -b 4096 -N betty
