@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+### Installs nginx, sets listening to port 80, GET request response
+apt-get update -y
+apt-get install nginx -y
+ufw allow 'Nginx HTTP'
+touch index.html
+echo "Holberton School" >> index.html
+systemctl start nginx
