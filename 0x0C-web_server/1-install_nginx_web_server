@@ -4,6 +4,6 @@ apt-get update -y
 apt-get install nginx -y
 ufw enable -y
 ufw allow 'Nginx HTTP'
-touch index.html
-echo "Holberton School" >> index.html
+touch /var/www/html/index.html
+echo "Holberton School" >> /var/www/html/index.html
 sudo systemctl start nginx
