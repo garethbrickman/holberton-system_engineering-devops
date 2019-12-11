@@ -6,4 +6,4 @@ ufw enable -y
 ufw allow 'Nginx HTTP'
 touch /var/www/html/index.html
 echo "Holberton School" >> /var/www/html/index.html
-sudo systemctl start nginx
+sudo service nginx start
