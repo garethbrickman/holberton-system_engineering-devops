@@ -7,7 +7,7 @@ new_string="location \/redirect_me {\n return 301 \$scheme:\/\/www.google.com;"
 apt-get update -y
 apt-get install nginx -y
 ufw allow 'Nginx HTTP'
-sudo service nginx start
+# sudo service nginx start
 echo "Holberton School" > /var/www/html/index.html
 sudo sed -i "s/$old_string/$new_string/" /etc/nginx/sites-available/default
-sudo service nginx restart
+sudo service nginx start
