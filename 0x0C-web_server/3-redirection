@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 ### Redirects /redirect_me page to another page
 ### Edits config at /etc/nginx/sites-available/default
+old_string="location \/ {"
+new_string="location \/redirect_me {\n return 301 \$scheme:\/\/www.google.com;"
+
 apt-get update -y
 apt-get install nginx -y
 ufw allow 'Nginx HTTP'
 sudo service nginx start
-touch /var/www/html/index.html
-echo "Holberton School" >> /var/www/html/index.html
-old_string="location \/ {"
-new_string="location \/redirect_me {\n return 301 \$scheme:\/\/www.google.com;"
-sed -i "s/$old_string/$new_string/" /etc/nginx/sites-available/default
+echo "Holberton School" > /var/www/html/index.html
+sudo sed -i "s/$old_string/$new_string/" /etc/nginx/sites-available/default
 sudo service nginx restart
