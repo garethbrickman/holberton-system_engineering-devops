@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+### Customizes 404 page
+apt-get update -y
+apt-get install nginx -y
+ufw enable -y
+ufw allow 'Nginx HTTP'
+touch /var/www/html/index.html
+echo "Holberton School" >> /var/www/html/index.html
+sudo service nginx start
