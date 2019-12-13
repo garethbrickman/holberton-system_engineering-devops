@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
-### Customizes 404 page
-old_string="location \/ {"
+### Installs nginx, configures index.html, 404 error and 301 redirect
+
 new_string="error_page 404 \/custom_404.html;\n location \/redirect_me {\n return 301 \$scheme:\/\/www.google.com;"
 
 apt-get update -y
 apt-get install nginx -y
-ufw allow 'Nginx HTTP'
+echo "Holberton School" > /usr/share/nginx/html/index.html
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+sed -i -E "s/^[^#]+location \/ \{/$new_string/" /etc/nginx/sites-available/default
 sudo service nginx start
-echo "Holberton School" > /var/www/html/index.html
-echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
-sudo sed -i "s/$old_string/$new_string/" /etc/nginx/sites-available/default
-sudo service nginx restart
