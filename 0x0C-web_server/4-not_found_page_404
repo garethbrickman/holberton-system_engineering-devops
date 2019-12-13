@@ -7,5 +7,5 @@ apt-get update -y
 apt-get install nginx -y
 echo "Holberton School" > /usr/share/nginx/html/index.html
 echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
-sed -i -E "s/^[^#]+location \/ \{/$new_string/" /etc/nginx/sites-available/default
+sudo sed -i -E "s/^[^#]+location \/ \{/$new_string/" /etc/nginx/sites-available/default
 sudo service nginx start
