@@ -6,6 +6,7 @@ new_string="error_page 404 \/custom_404.html;\n location \/redirect_me {\n retur
 apt-get update -y
 apt-get install nginx -y
 echo "Holberton School" > /usr/share/nginx/html/index.html
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+mkdir -p /var/www/html
+echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
 sudo sed -i -E "s/^[^#]+location \/ \{/$new_string/" /etc/nginx/sites-available/default
 sudo service nginx start
