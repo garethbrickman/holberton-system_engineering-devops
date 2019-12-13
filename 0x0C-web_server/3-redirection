@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-### Redirects /redirect_me page to another page
-### Edits config at /etc/nginx/sites-available/default
-old_string="location \/ {"
-new_string="location \/redirect_me {\n return 301 \$scheme:\/\/www.google.com;"
+### Installs nginx, configures index.html, 404 error and 301 redirect
+
+new_string="error_page 404 \/custom_404.html;\n location \/redirect_me {\n return 301 \$scheme:\/\/www.google.com;"
 
 apt-get update -y
 apt-get install nginx -y
-mkdir -p /var/www/html
-echo "Holberton School" > /var/www/html/index.html
-sudo sed -i "s/$old_string/$new_string/" /etc/nginx/sites-available/default
+echo "Holberton School" > /usr/share/nginx/html/index.html
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+sudo sed -i -E "s/^[^#]+location \/ \{/$new_string/" /etc/nginx/sites-available/default
 sudo service nginx start
