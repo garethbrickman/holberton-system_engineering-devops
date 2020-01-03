@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+### Installs nginx, configures index.html, 404 error and 301 redirect
+### Also inserts custom header in /etc/nginx/sites-available/default
+
+new_string="error_page 404 \/custom_404.html;\n location \/redirect_me {\n return 301 \$scheme:\/\/www.google.com;"
+new_string2="server {\n\tadd_header X-Served-By $var"
+var=$(hostname)
+
+apt-get update -y
+apt-get install nginx -y
+echo "Holberton School" > /usr/share/nginx/html/index.html
+mkdir -p /var/www/html
+echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+sudo sed -i -E "s/^[^#]+location \/ \{/$new_string/" /etc/nginx/sites-available/default
+sudo sed -i -E "s/^server \{/$new_string2/" /etc/nginx/sites-available/default
+sudo service nginx start
