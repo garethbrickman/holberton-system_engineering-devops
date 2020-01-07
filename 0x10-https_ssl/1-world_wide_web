@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+### Displays information about subdomains
+### $1 = domain | $2 = subdomain
+### Output: The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
+# shellcheck disable=SC2086
+
+if [  $# == 2  ]; then
+    var_rec=$(dig $1 | grep -A1 'ANSWER SECTION:' | awk '{print $4}' | sed '/./,$!d')
+    var_ip=$(dig $1 | grep -A1 'ANSWER SECTION:' | awk '{print $5}' | sed '/./,$!d')
+    echo "The subdomain $2 is a $var_rec record and points to $var_ip"
+fi
