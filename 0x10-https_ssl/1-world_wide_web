@@ -8,4 +8,17 @@ if [  $# == 2  ]; then
     var_rec=$(dig $1 | grep -A1 'ANSWER SECTION:' | awk '{print $4}' | sed '/./,$!d')
     var_ip=$(dig $1 | grep -A1 'ANSWER SECTION:' | awk '{print $5}' | sed '/./,$!d')
     echo "The subdomain $2 is a $var_rec record and points to $var_ip"
+else
+    var_rec=$(dig www.$1 | grep -A1 'ANSWER SECTION:' | awk '{print $4}' | sed '/./,$!d')
+    var_ip=$(dig www.$1 | grep -A1 'ANSWER SECTION:' | awk '{print $5}' | sed '/./,$!d')
+    echo "The subdomain www is a $var_rec record and points to $var_ip"
+    var_rec=$(dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | awk '{print $4}' | sed '/./,$!d')
+    var_ip=$(dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | awk '{print $5}' | sed '/./,$!d')
+    echo "The subdomain lb-01 is a $var_rec record and points to $var_ip"
+    var_rec=$(dig web-01.$1 | grep -A1 'ANSWER SECTION:' | awk '{print $4}' | sed '/./,$!d')
+    var_ip=$(dig web-01.$1 | grep -A1 'ANSWER SECTION:' | awk '{print $5}' | sed '/./,$!d')
+    echo "The subdomain web-01 is a $var_rec record and points to $var_ip"
+    var_rec=$(dig web-02.$1 | grep -A1 'ANSWER SECTION:' | awk '{print $4}' | sed '/./,$!d')
+    var_ip=$(dig web-02.$1 | grep -A1 'ANSWER SECTION:' | awk '{print $5}' | sed '/./,$!d')
+    echo "The subdomain web-02 is a $var_rec record and points to $var_ip"
 fi
