@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 ### Prints user
-id -un $1
+sudo -u "$1" whoami
