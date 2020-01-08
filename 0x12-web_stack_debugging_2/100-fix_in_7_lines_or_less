@@ -3,6 +3,5 @@
 sudo chown nginx: /etc/nginx/nginx.conf
 sudo chmod u+r /etc/nginx/nginx.conf
 pkill apache
-sudo sed -i -e 's/listen 80/listen 8080/g' /etc/nginx/sites-available/default
-sudo sed -i -e 's/listen \[::\]:80/listen \[::\]:8080/g' /etc/nginx/sites-available/default
+sudo sed -i -e 's/listen 80\n\tlisten \[::\]:80/listen 8080\n\tlisten \[::\]:8080/g' /etc/nginx/sites-available/default
 sudo -u nginx nginx -c /etc/nginx/nginx.conf
