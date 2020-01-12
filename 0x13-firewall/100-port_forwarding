@@ -12,7 +12,7 @@
 *nat
 :PREROUTING ACCEPT [0:0]
 # forward port 8080/TCP to port 80/TCP
--A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
 COMMIT
 
 *filter
