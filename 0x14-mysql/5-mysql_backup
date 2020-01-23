@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+### Dumps all MySQL databases, compresses to tar.gz
+### $1 = database password
+now=$(date +"%d-%m-%Y")
+mysqldump -u root -p"$1" --all-databases > backup.sql
+tar -zcf "$now".tar.gz ./backup.sql
