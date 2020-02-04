@@ -25,7 +25,6 @@ if __name__ == "__main__":
     with open('{}.csv'.format(user_id), 'w', newline='') as csvfile:
         csv_data = csv.writer(csvfile, delimiter=',', quotechar='"',
                               quoting=csv.QUOTE_ALL)
-        csv_data.writerow(["userId", "completed", "title"])
         for elem in data:
-            csv_data.writerow([elem["userId"], username, elem["completed"],
-                               elem["title"]])
+            csv_data.writerow([elem["userId"], username,
+                               elem["completed"], elem["title"]])
