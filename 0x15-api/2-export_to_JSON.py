@@ -33,5 +33,5 @@ if __name__ == "__main__":
 
     json_data = {}
     json_data[user_id] = json_list
-    with open('{}.json'.format(user_id), 'w') as jsonfile:
+    with open(user_id + ".json", 'w') as jsonfile:
         json.dump(json_data, jsonfile)
