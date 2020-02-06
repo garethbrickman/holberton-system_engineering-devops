@@ -1,1 +1,1 @@
-This is a README file for my 0x00. Shell, basics project repo
+This is a README for my holberton-system_engineering-devops projects!
