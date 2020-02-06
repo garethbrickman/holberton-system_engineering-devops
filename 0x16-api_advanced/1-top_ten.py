@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Queries Reddit API for first 10 hot post titles from subreddit
-    Returns 0 if invalid subreddit
+    Prints 'None' if invalid subreddit
 """
 import requests as r
 import requests.auth as ra
