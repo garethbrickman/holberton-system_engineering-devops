@@ -34,12 +34,8 @@ def recurse(subreddit, hot_list=[], after=None):
 
     headers = {"Authorization": "{} {}".format(bearer, token),
                "User-Agent": "ChangeMeClient/0.1 by {}".format(my_username)}
-    if after is not None:
-        params = {'limit': 100, 'after': after}
-        response = r.get(sub_url, headers=headers, params=params)
-    else:
-        params = {'limit': 100}
-        response = r.get(sub_url, headers=headers, params=params)
+    params = {'limit': 100, 'after': after}
+    response = r.get(sub_url, headers=headers, params=params)
 
     # handles error response; invalid subreddit
     if response.status_code is not 200:
@@ -48,10 +44,10 @@ def recurse(subreddit, hot_list=[], after=None):
     # peels the onion of nested dicts and lists
     else:
         response_json = response.json().get('data').get('children')
+        if response.json().get('data').get('after') is None:
+            return(hot_list)
+        after = response.json().get('data').get('after')
         for subdict in response_json:
             hot_list.append(subdict.get('data').get('title'))
-        if response.json().get('data').get('after') is not None:
-            after = response.json().get('data').get('after')
-            return recurse(subreddit, hot_list, after)
-        else:
-            return(hot_list)
+
+        return recurse(subreddit, hot_list, after)
