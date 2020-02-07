@@ -7,7 +7,7 @@ import requests.auth as ra
 from sys import argv
 
 
-def recurse(subreddit, hot_list=[], after=None):
+def recurse(subreddit, hot_list=[], after=[]):
     """ Recursive query system for Reddit API hot posts
     """
 
@@ -36,7 +36,12 @@ def recurse(subreddit, hot_list=[], after=None):
 
     headers = {"Authorization": "{} {}".format(bearer, token),
                "User-Agent": "ChangeMeClient/0.1 by {}".format(my_username)}
-    params = {'limit': 100, 'after': after}
+
+    if len(after) is not 0:
+        params = {'limit': 100, 'after': after[-1]}
+    else:
+        params = {'limit': 100}
+
     response = r.get(sub_url, headers=headers, params=params)
 
     # handles error response; invalid subreddit
@@ -46,10 +51,11 @@ def recurse(subreddit, hot_list=[], after=None):
     # peels the onion of nested dicts and lists
     else:
         response_json = response.json().get('data').get('children')
-        if response.json().get('data').get('after') is None:
-            return(hot_list)
-        after = response.json().get('data').get('after')
-        for subdict in response_json:
-            hot_list.append(subdict.get('data').get('title'))
+        if response.json().get('data').get('after') not in after:
+            after.append(response.json().get('data').get('after'))
+            for subdict in response_json:
+                hot_list.append(subdict.get('data').get('title'))
 
-        return recurse(subreddit, hot_list, after)
+            return recurse(subreddit, hot_list, after)
+        else:
+            return hot_list
