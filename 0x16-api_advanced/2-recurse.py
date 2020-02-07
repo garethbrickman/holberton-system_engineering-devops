@@ -8,6 +8,8 @@ from sys import argv
 
 
 def recurse(subreddit, hot_list=[], after=None):
+    """ Recursive query system for Reddit API hot posts
+    """
 
     # Generates token & bearer for requests to oauth.reddit.com endpoints
     # https://github.com/reddit-archive/reddit/wiki/OAuth2-Quick-Start-Example
