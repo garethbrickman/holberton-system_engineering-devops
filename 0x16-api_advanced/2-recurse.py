@@ -45,13 +45,13 @@ def recurse(subreddit, hot_list=[], after=None):
     if response.status_code is not 200:
         return None
 
-    # unpeels the onion of nested dicts and lists
+    # peels the onion of nested dicts and lists
     else:
         response_json = response.json().get('data').get('children')
         for subdict in response_json:
             hot_list.append(subdict.get('data').get('title'))
         if response.json().get('data').get('after') is not None:
             after = response.json().get('data').get('after')
-            recurse(subreddit, hot_list, after)
+            return recurse(subreddit, hot_list, after)
         else:
             return(hot_list)
