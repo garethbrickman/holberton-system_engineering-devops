@@ -40,7 +40,7 @@ def top_ten(subreddit):
     # handles error response; invalid subreddit
     if response.status_code is not 200:
         print("None")
-    # unpeels the onion of nested dicts and lists
+    # peels the onion of nested dicts and lists
     else:
         response_json = response.json().get('data').get('children')
         for subdict in response_json:
