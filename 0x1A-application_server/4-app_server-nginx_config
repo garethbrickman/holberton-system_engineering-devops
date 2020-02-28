@@ -75,7 +75,7 @@ server {
 			     # requests that do not fall under /static are passed on to the WSGI
 
 			     # server that was specified above running on port 5001
-			     location /api {
+			     location /api/ {
 
 			     proxy_pass http://app_server_gunicorn_api;
 
