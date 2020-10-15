@@ -4,7 +4,7 @@
 
 # System Engineering and Devops
 
-This repository contains programs written in Bash for the System Engineering and Devops curriculum at Holberton School.
+This repository contains programs and scripts primarily written in Bash and Python for the System Engineering and Devops curriculum at Holberton School.
 
 | Project | Description |
 | :--- | :---|
@@ -36,6 +36,7 @@ This repository contains programs written in Bash for the System Engineering and
 | [0x19. Postmortem](./0x19-postmortem)| How to write a Postmortem |
 | [0x1A. Application Server](./0x1A-application_server) | Serving Flask apps with Gunicorn and NGINX |
 | [0x1B. Web Stack Debugging #4](./0x1B-web_stack_debugging_4) | Benchmarking with ApacheBench |
+| [Attack is the best defense](./attack_is_the_best_defense) | ARP spoofing and sniffing unencrypted traffic, dictionary attack |
 
 ## Author
 
